@@ -1,10 +1,12 @@
 <div class="row">
   <%= simple_form_for gift, :remote => true, html: { class: 'form-vertical' } do |f| %>
     <div class="span4">
-      <%= f.input :user_id, as: :select, collection: @users, :label_method => :name, :value_method => :id %>
+      <%= f.input :user_id, as: :select, collection: @users, allow_blank: false, selected: @users.first,
+                  :label_method => :name, :value_method => :id,
+                  input_html: { "data-items-url" => items_url } %>
     </div>
     <div class="span4">
-      <%= f.input :item_id, as: :select, collection: @items %>
+      <%= f.input :item_id, as: :select, collection: @items, allow_blank: false, selected: @items.first %>
     </div>
     <div class="span3 create_button_with_margin">
       <%= f.button :submit, class: 'btn-success' %>

@@ -2,7 +2,11 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = if params[:allowed_for]
+               Item.allowed_for(params[:allowed_for])
+             else
+               Item.all
+             end
 
     respond_to do |format|
       format.html # index.html.erb

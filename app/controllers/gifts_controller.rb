@@ -44,6 +44,6 @@ class GiftsController < ApplicationController
   private
   def set_required_variables
     @users = User.all
-    @items = Item.all
+    @items = Item.allowed_for(@users.first)
   end
 end
