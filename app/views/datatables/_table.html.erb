@@ -2,7 +2,8 @@
 
 <div class="span9">
   <table id="<%= model.to_s.pluralize %>" class="datatable table table-hover table-bordered"
-         data-source="<%= url_for(controller: model.to_s.pluralize, action: :index, format: "json") %>">
+         data-source="<%= url_for(controller: model.to_s.pluralize, action: :index, format: "json") %>"
+         data-table-options="<%= options.to_json %>">
     <thead>
       <tr>
         <% datatable_headers_for(model).each do |name| %>

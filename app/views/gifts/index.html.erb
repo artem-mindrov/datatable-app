@@ -10,7 +10,12 @@
 </div>
 
 <div id="gifts_list">
-  <%= render "datatables/table", model: :gift %>
+  <%= render "datatables/table", model: :gift,
+             options: {
+                     sDom: "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+                     aaSorting: [[0,'desc']],
+                     aoColumns: [nil, { bSortable: false}, { bSortable: false}]
+             } %>
 </div>
 <hr />
 
