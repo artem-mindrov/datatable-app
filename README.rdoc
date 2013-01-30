@@ -1,0 +1,8 @@
+== Test Datatables App
+
+
+
+1) bundle install
+2) rake db:create
+3) rake db:seed
+4) rails s

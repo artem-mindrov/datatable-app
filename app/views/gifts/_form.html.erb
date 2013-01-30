@@ -1,0 +1,13 @@
+<div class="row">
+  <%= simple_form_for gift, :remote => true, html: { class: 'form-vertical' } do |f| %>
+    <div class="span4">
+      <%= f.input :user_id, as: :select, collection: @users, :label_method => :name, :value_method => :id %>
+    </div>
+    <div class="span4">
+      <%= f.input :item_id, as: :select, collection: @items %>
+    </div>
+    <div class="span3 create_button_with_margin">
+      <%= f.button :submit, class: 'btn-success' %>
+    </div>
+  <% end %>
+</div>
