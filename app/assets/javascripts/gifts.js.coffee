@@ -10,3 +10,7 @@ jQuery ->
      bServerSide: true
      sAjaxSource: $('#gifts').data('source')
 
+  updateTable = ->
+    $("#gifts").dataTable().fnReloadAjax()
+
+  setInterval(updateTable, 60 * 1000)
