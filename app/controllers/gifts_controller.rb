@@ -4,7 +4,6 @@ class GiftsController < ApplicationController
   # GET /gifts
   # GET /gifts.json
   def index
-    @gift = Gift.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: GiftsDatatable.new(view_context) }
@@ -32,9 +31,11 @@ class GiftsController < ApplicationController
     respond_to do |format|
       if @gift.save
         format.html { redirect_to gift_path(@gift), notice: 'Gift was successfully created.' }
+        format.js
         format.json { render json: GiftsDatatable.new(view_context)}
       else
         format.html { set_required_variables; render action: "new" }
+        format.js
         format.json { render json: @gift.errors, status: :unprocessable_entity }
       end
     end
