@@ -1,0 +1,28 @@
+<% presenter = presenter_for(model) %>
+
+<div class="span9">
+  <table id="<%= model.to_s.pluralize %>" class="datatable table table-hover table-bordered"
+         data-source="<%= url_for(controller: model.to_s.pluralize, action: :index, format: "json") %>">
+    <thead>
+      <tr>
+        <% datatable_headers_for(model).each do |name| %>
+          <th class="gift_id" rowspan="1"><%= name %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+      <tr>
+        <% presenter.columns.each do |col, data| %>
+          <% if presenter.options(col)[:searchable] %>
+            <th><input type="text" name="search_<%= col.to_s %>"
+                       value="Search <%= data[:name].pluralize %>" class="search_init" /></th>
+          <% else %>
+            <th></th>
+          <% end %>
+        <% end %>
+      </tr>
+    </tfoot>
+  </table>
+</div>
