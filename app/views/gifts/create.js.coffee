@@ -1,1 +1,1 @@
-$("#gifts").dataTable().fnAddData(<%= [ @gift.id, @gift.user.name, @gift.item.name ].to_json.html_safe %>)
+$("#gifts").dataTable().fnAddData(<%= GiftsDatatable.new(self).row_data_for(@gift).to_json.html_safe %>)

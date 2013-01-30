@@ -17,6 +17,14 @@ class GiftsDatatable
     }
   end
 
+  def row_data_for(gift)
+    [
+      link_to(gift.id, gift),
+      link_to(gift.user.name, gift),
+      link_to(gift.item.name, gift),
+    ]
+  end
+
 private
 
 # product: name, category, release date, price
@@ -24,11 +32,7 @@ private
   def data
     Rails.logger.info "data.... gifts=#{gifts.inspect}"
     gifts.map do |gift|
-      [
-        link_to(gift.id, gift),
-        link_to(gift.user.name, gift),
-        link_to(gift.item.name, gift),
-      ]
+      row_data_for(gift)
     end
   end
 
