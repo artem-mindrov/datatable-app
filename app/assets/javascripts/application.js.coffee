@@ -5,5 +5,5 @@
 #= require dataTables/jquery.dataTables.bootstrap
 #= require_tree .
 
-jQuery ($) ->
-   App.init()
+#jQuery ($) ->
+#  App.init()
