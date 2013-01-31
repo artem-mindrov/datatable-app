@@ -16,7 +16,7 @@
     <tfoot>
       <tr>
         <% presenter.columns.each do |col, data| %>
-          <% if presenter.options(col)[:searchable] %>
+          <% if presenter.options(col)[:bSearchable] %>
             <th><input type="text" name="search_<%= col.to_s %>"
                        value="Search <%= data[:name].pluralize %>" class="search_init" /></th>
           <% else %>

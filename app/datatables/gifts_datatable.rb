@@ -1,7 +1,15 @@
 class GiftsDatatable < DatatablePresenter
-  column( :id, "ID", searchable: true )               { |ctxt, gift| ctxt.link_to(gift.id, gift) }
-  column( :user_name, "User Name", searchable: true ) { |ctxt, gift| ctxt.link_to(gift.user.name, gift) }
-  column( :item_name, "Item Name", searchable: true ) { |ctxt, gift| ctxt.link_to(gift.item.name, gift) }
+  column( :id, "ID", bSearchable: true ) do |ctxt, gift|
+    ctxt.link_to(gift.id, gift)
+  end
+
+  column( :user_name, "User Name", bSearchable: true, bSortable: false ) do |ctxt, gift|
+    ctxt.link_to(gift.user.name, gift)
+  end
+
+  column( :item_name, "Item Name", bSearchable: true, bSortable: false ) do |ctxt, gift|
+    ctxt.link_to(gift.item.name, gift)
+  end
 
   private
 
